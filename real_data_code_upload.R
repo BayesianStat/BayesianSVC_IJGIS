@@ -582,6 +582,9 @@ ic_tab$dDIC  <- round(ic_tab$DIC  - min(ic_tab$DIC),2)
 ic_tab$dWAIC <- round(ic_tab$WAIC - min(ic_tab$WAIC), 2)
 print(ic_tab)
 
+
+
+#### other quantities for plots 
 res_tab <- data.frame(
   unit_id      = dat$analysis_unit_id,
   longitude    = dat$longitude,
@@ -932,7 +935,7 @@ mk_choropleth <- function(gdf,
     theme_map
 }
 
-##### Figure 8 (a)(d) ##########################
+##### Figure 7 (a)(d) ##########################
 p_b0_mg  <- mk_choropleth(
   gdf_plot, "b0_mg",
   title=expression(paste("MGWNBR ", beta[0])),
@@ -951,7 +954,7 @@ p_b0_svc <- mk_choropleth(
   limits = c(-4,-1)
 )
 
-##### Figure 8 (b)(e) ##########################
+##### Figure 7 (b)(e) ##########################
 p_b1_mg  <- mk_choropleth(
   gdf_plot, "b1_mg",
   title    = expression(paste("MGWNBR ", beta[1])),
@@ -970,7 +973,7 @@ p_b1_svc <- mk_choropleth(
   limits = c(-0.5,0.5)
 )
 
-##### Figure 8 (c)(f) ##########################
+##### Figure 7 (c)(f) ##########################
 p_b2_mg  <- mk_choropleth(
   gdf_plot, "b2_mg",
   title    = expression(paste("MGWNBR ", beta[2])),
@@ -989,7 +992,7 @@ p_b2_svc <- mk_choropleth(
   limits = c(-2.5,2.5)
 )
 
-############### Figure 9 ##################
+############### Figure 8 ##################
 p_diff <-ggplot() +
   geom_sf(data  = gdf_plot,
           aes(fill = b0_diff),
@@ -1004,7 +1007,9 @@ p_diff <-ggplot() +
   labs(title= expression(paste(abs(Delta(beta[0])), "  (MGWNBR − SVC-NBR)")))+
   theme_map
 
-############# Figure 7 #########################
+p_diff
+
+############# Figure 6 #########################
 p_crime <- ggplot() +
   geom_sf(data  = gdf_plot,
           aes(fill = log1p(y_count)),
@@ -1022,8 +1027,9 @@ p_crime <- ggplot() +
   labs(title    = "crime counts (log scale)") +
   theme_map
 
+p_crime
 
-################# Figure 11 #########################
+################# Figure 10 #########################
 
 profile_all_plot <- boundary_discrepancy_profile %>%
   mutate(
@@ -1088,7 +1094,7 @@ p_delta_all_profile <- ggplot(
 print(p_delta_all_profile)
 
 
-#################### Figure 10 ##################
+#################### Figure 9 ##################
 
 p_delta_b0_scatter <- ggplot(
   boundary_discrepancy_df,
