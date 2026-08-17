@@ -1,4 +1,4 @@
-This is an instruction of generating Tables 3-6, Figures 1-10 in the paper "Comparing Bayesian Models with Spatially Varying Coefficients When Count Data Are Over-dispersed and Spatially Discontinuous" submitted to IJGIS. 
+This is an instruction of generating Tables 3-4, Figures 1-10 in the paper "Comparing Bayesian Models with Spatially Varying Coefficients When Count Data Are Over-dispersed and Spatially Discontinuous" submitted to IJGIS. 
 
 1. For real data application:
 The code is "real_data_code_upload.R", data used are "chicago_boundary_count_model_2023.csv" and "same_side_matrix.csv".
@@ -21,5 +21,19 @@ Step 6. run SECTION 9: outputs
 
 
 2. For simulation study:
-The code is "".
+The code is "simulation_upload.R".
+
+Step 1. run Section 1: Simulation Setpip
+---- generate simulated datasets for different scenarios
+Step 2. run Section 2: run the simulations via HPC
+---- generate the simulated results with R=200 replications
+Step 3. run Section 3: collect simulation results and generate plots
+---- collect the 200 simulation results files, summarise and then obtain plots
+---- generate Figure 1: True coefficient surfaces under different simulation settings
+---- generate Figure 2: Global coefficient recovery measured by the mean RMSE ratio
+---- generate Table 3: Median information-criterion differences
+---- generate Figure 3: Information-criterion comparison between MGWNBR and SVC-NBR
+---- generate Figure 4: Boundary-distance RMSE ratio under hard-discontinuity scenarios
+---- generate Figure 5: Boundary-distance win probability for MGWNBR
+
 
